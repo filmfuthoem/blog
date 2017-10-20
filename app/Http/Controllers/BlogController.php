@@ -2,15 +2,16 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
 use App\Blog;
+
+use Request;
+/*use App\Http\Requests\BlogRequest;*/
 
 class BlogController extends Controller {
 
 	//
 	public function index(){
-		$blogs = Blog::get();
+		$blogs = Blog::published()->get();
 		return view('blogs.index',compact('blogs'));
 	}
 
@@ -30,7 +31,9 @@ class BlogController extends Controller {
 	}
 
 	public function store(){
-		return redirect('blog.index');
+		$input = Request::all();
+		Blog::create($input);
+		return redirect('blogs');
 	}
 
 }

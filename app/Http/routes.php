@@ -23,3 +23,4 @@ Route::controllers([
 Route::get('hello','BlogController@index');
 Route::get('about','BlogController@about');
 Route::get('create','BlogController@create');
+Route::resource('blogs','BlogController');

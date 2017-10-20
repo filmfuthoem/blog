@@ -21,7 +21,7 @@
             <a href="{{ url('blogs/'.$blog->id) }}">
               <h2 class="blog-post-title">{{ $blog->title}}</h2>
             </a>
-            <p class="blog-post-meta">{{ $blog->published_at }}<a href="#">Mark</a></p>
+            <p class="blog-post-meta">{{ $blog->published_at->diffForHumans()}} by <a href="#">Mark</a></p>
 
             <p>{{ $blog->body }}</p>
             <hr>
